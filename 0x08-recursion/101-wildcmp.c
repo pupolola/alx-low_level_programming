@@ -18,7 +18,9 @@ int strlen_no_wilds(char *str)
 int len = 0, index = 0;
 
 if (*(str + index))
-{ if (*str != '*')
+
+{
+if (*str != '*')
 len++;
 
 index++;
@@ -32,7 +34,9 @@ return (len); }
 * @wildstr: The string to be iterated through.
 */
 void iterate_wild(char **wildstr)
-{ if (**wildstr == '*')
+
+{
+if (**wildstr == '*')
 { (*wildstr)++;
 iterate_wild(wildstr); } }
 
@@ -68,7 +72,9 @@ return (postfix); }
 *         Otherwise - 0.
 */
 int wildcmp(char *s1, char *s2)
-{ if (*s2 == '*')
+
+{
+if (*s2 == '*')
 { iterate_wild(&s2);
 s2 = postfix_match(s1, s2); }
 
